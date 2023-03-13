@@ -5,7 +5,8 @@
     <title>Login and Signup Form</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href=" css/style.css">
 </head>
 
 <body>
@@ -16,7 +17,8 @@
                 <input type="text" placeholder="Username" required>
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" required id="password1">
+                <i class="fa-regular fa-eye-slash" id="toggle-password1"></i>
             </div>
             <input type="submit" class="btn" value="login">
             <p class="forgot-password"><a href="#" id="forgotPasswordLink">Forgot Password?</a></p>
@@ -32,66 +34,18 @@
                 <input type="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" required id="password2">
+                <i class="fa-regular fa-eye-slash" id="toggle-password2"></i>
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Confirm Password" required>
+                <input type="password" placeholder="Confirm Password" required id="password3">
+                <i class="fa-regular fa-eye-slash" id="toggle-password3"></i>
             </div>
             <input type="submit" class="btn" value="Sign up">
             <p class="signup-link">Already have an account? <a href="#" id="show-login">Login</a></p>
         </form>
     </div>
-    <script>
-        const loginForm = document.querySelector('.login-form');
-        const signupForm = document.querySelector('.signup-form');
-        const showSignup = document.querySelector('#show-signup');
-        const showLogin = document.querySelector('#show-login');
-
-        showSignup.addEventListener('click', () => {
-            loginForm.classList.add('hide');
-            signupForm.classList.remove('hide');
-        });
-
-        showLogin.addEventListener('click', () => {
-            signupForm.classList.add('hide');
-            loginForm.classList.remove('hide');
-        });
-
-        const forgotPasswordLink = document.querySelector("#forgotPasswordLink");
-        const modal = document.createElement("div");
-        modal.classList.add("container");
-
-        forgotPasswordLink.addEventListener("click", function() {
-            document.querySelector(".container").classList.add('hide');
-            const modalContent = document.createElement("div");
-            modalContent.classList.add("modal-content");
-            const closeButton = document.createElement("span");
-            closeButton.classList.add("close");
-            closeButton.innerHTML = "&times;";
-            const modalBody = document.createElement("div");
-            modalBody.innerHTML = `
-    <h2>Password recovery</h2>
-    <div class="form-group">
-      <label for="email">email</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter your email here" required>
-    </div>
-    <input type="submit" class="btn btn-primary" value="submit">
-  `;
-
-            modalContent.appendChild(closeButton);
-            modalContent.appendChild(modalBody);
-            modal.appendChild(modalContent);
-            document.body.appendChild(modal)
-
-            closeButton.addEventListener("click", function() {
-                modalContent.remove();
-                modal.remove();
-                document.querySelector(".container").classList.remove('hide')
-
-            });
-        });
-
-    </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
